@@ -54,6 +54,19 @@ export async function PUT(
 
     if (isRealDbConnected) {
       await dbConnect();
+      
+      // Resolve category ObjectId if frontend sent a slug string instead of an ObjectId
+      const mongoose = (await import('mongoose')).default;
+      if (body.category && !mongoose.Types.ObjectId.isValid(body.category)) {
+        const Category = (await import('@/models/Category')).default;
+        const cat = await Category.findOne({ name: body.categoryName });
+        if (cat) {
+          body.category = cat._id;
+        } else {
+          return NextResponse.json({ success: false, error: 'Invalid category specified' }, { status: 400 });
+        }
+      }
+
       const updatedProduct = await Product.findByIdAndUpdate(id, body, { new: true });
       if (!updatedProduct) {
         return NextResponse.json({ success: false, error: 'Product not found' }, { status: 404 });
