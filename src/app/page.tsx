@@ -7,7 +7,7 @@ import FeaturedProducts from '@/components/home/FeaturedProducts';
 export default function HomePage() {
   return (
     <div className="bg-bg-primary">
-      <div className="container-main py-8">
+      <div className="container-main py-8 space-y-8">
         {/* Hero Banner */}
         <HeroBanner />
 
