@@ -582,7 +582,7 @@
       "_id": "user_admin",
       "name": "Moon Mart Admin",
       "email": "admin@moonmart.com",
-      "password": "$2b$10$9HwsmlFvSauc1Amke.Zh2OlMIdiNaDM9EzC3cjT9LUgFvHz8jDtQ2",
+      "password": "$2b$10$qLswzTAeaAELmWQawFJOo.uHOdHJ81UouwFV0O7Ry1R.a2.9IYQiS",
       "role": "admin",
       "phone": "03001234567",
       "addresses": [
