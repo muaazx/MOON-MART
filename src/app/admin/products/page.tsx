@@ -40,6 +40,7 @@ export default function AdminProductsPage() {
     discountPrice: '',
     stock: '',
     image: '',
+    country: 'ALL',
   });
 
   // Access check
@@ -101,6 +102,7 @@ export default function AdminProductsPage() {
       discountPrice: prod.discountPrice ? String(prod.discountPrice) : '',
       stock: String(prod.stock),
       image: prod.images[0] || '',
+      country: prod.country || 'ALL',
     });
     setShowForm(true);
   };
@@ -117,6 +119,7 @@ export default function AdminProductsPage() {
       discountPrice: '',
       stock: '10',
       image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop', // pre-fill placeholder
+      country: 'ALL',
     });
     setShowForm(true);
   };
@@ -154,6 +157,7 @@ export default function AdminProductsPage() {
       stock: parseInt(formData.stock),
       images: [formData.image],
       slug: formData.name.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+      country: formData.country,
     };
 
     try {
@@ -351,8 +355,8 @@ export default function AdminProductsPage() {
                   />
                 </div>
 
-                {/* Brand & Category */}
-                <div className="grid grid-cols-2 gap-3">
+                {/* Brand, Category & Country */}
+                <div className="grid grid-cols-3 gap-3">
                   <div>
                     <label htmlFor="prodBrand" className="block font-semibold text-text-secondary mb-1">Brand</label>
                     <input
@@ -376,6 +380,19 @@ export default function AdminProductsPage() {
                       {categoriesList.map((cat) => (
                         <option key={cat.id} value={cat.name}>{cat.name}</option>
                       ))}
+                    </select>
+                  </div>
+                  <div>
+                    <label htmlFor="prodCountry" className="block font-semibold text-text-secondary mb-1">Region</label>
+                    <select
+                      id="prodCountry"
+                      value={formData.country}
+                      onChange={(e) => setFormData({ ...formData, country: e.target.value })}
+                      className="w-full px-3 py-2 border border-border rounded-lg bg-white outline-none focus:border-primary text-xs"
+                    >
+                      <option value="ALL">Both (US & UK)</option>
+                      <option value="US">US Only</option>
+                      <option value="UK">UK Only</option>
                     </select>
                   </div>
                 </div>

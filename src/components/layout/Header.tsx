@@ -92,8 +92,8 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50">
       {/* ─── Top Bar ─── */}
-      <div className="bg-secondary text-white/80 text-xs hidden md:block">
-        <div className="container-main flex justify-between items-center h-8">
+      <div className="bg-secondary text-white/80 text-sm hidden md:block">
+        <div className="container-main flex justify-between items-center h-10">
           <div className="flex items-center gap-4">
             <span>Welcome to Moon Mart! 🌙</span>
             <span className="text-primary font-semibold">{shippingNotice}</span>
@@ -137,7 +137,7 @@ export default function Header() {
 
       {/* ─── Main Header ─── */}
       <div className={`bg-primary transition-all duration-300 ${isScrolled ? 'shadow-lg' : ''}`}>
-        <div className="container-main flex items-center h-16 gap-4">
+        <div className="container-main flex items-center h-20 gap-6">
           {/* Mobile Menu Toggle */}
           <button
             className="md:hidden text-white p-2"
@@ -148,12 +148,12 @@ export default function Header() {
           </button>
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 shrink-0">
-            <div className="w-9 h-9 bg-white rounded-lg flex items-center justify-center text-primary font-bold text-xl">
+          <Link href="/" className="flex items-center gap-3 shrink-0">
+            <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-primary font-bold text-2xl">
               🌙
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-white font-bold text-xl leading-tight tracking-tight">
+              <h1 className="text-white font-bold text-2xl leading-tight tracking-tight">
                 Moon<span className="text-accent">Mart</span>
               </h1>
             </div>
@@ -174,8 +174,8 @@ export default function Header() {
                 isSearchFocused ? 'ring-4 ring-accent/35 shadow-lg scale-[1.002]' : 'shadow-sm border border-transparent'
               }`}
             >
-              <div className="pl-4 text-text-muted flex items-center justify-center">
-                <FiSearch size={18} />
+              <div className="pl-5 text-text-muted flex items-center justify-center">
+                <FiSearch size={22} />
               </div>
               <input
                 type="text"
@@ -184,12 +184,12 @@ export default function Header() {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onFocus={() => setIsSearchFocused(true)}
                 onBlur={() => setIsSearchFocused(false)}
-                className="flex-1 px-3 py-2.5 text-sm text-text-primary outline-none bg-transparent"
+                className="flex-1 px-4 py-3.5 text-base text-text-primary outline-none bg-transparent"
                 id="search-input"
               />
               <button
                 type="submit"
-                className="bg-secondary hover:bg-secondary-light text-white px-6 py-2.5 transition-colors font-semibold text-sm cursor-pointer"
+                className="bg-secondary hover:bg-secondary-light text-white px-8 py-3.5 transition-colors font-bold text-base cursor-pointer"
                 aria-label="Search"
               >
                 Search
@@ -198,14 +198,14 @@ export default function Header() {
           </form>
 
           {/* Header Actions */}
-          <div className="flex items-center gap-1.5 sm:gap-3">
+          <div className="flex items-center gap-2 sm:gap-4">
             {/* Wishlist */}
             <Link
               href="/wishlist"
-              className="relative text-white hover:text-accent transition-all duration-200 p-2.5 rounded-xl hover:bg-white/10 hover:scale-105 active:scale-95"
+              className="relative text-white hover:text-accent transition-all duration-200 p-3 rounded-2xl hover:bg-white/10 hover:scale-105 active:scale-95"
               aria-label="Wishlist"
             >
-              <FiHeart size={22} />
+              <FiHeart size={26} />
               {mounted && wishlistCount > 0 && (
                 <span className="absolute -top-0.5 -right-0.5 bg-accent text-secondary text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border border-primary shadow-sm animate-scale-in">
                   {wishlistCount}
@@ -216,10 +216,10 @@ export default function Header() {
             {/* Cart */}
             <Link
               href="/cart"
-              className="relative text-white hover:text-accent transition-all duration-200 p-2.5 rounded-xl hover:bg-white/10 hover:scale-105 active:scale-95"
+              className="relative text-white hover:text-accent transition-all duration-200 p-3 rounded-2xl hover:bg-white/10 hover:scale-105 active:scale-95"
               aria-label="Cart"
             >
-              <FiShoppingCart size={22} />
+              <FiShoppingCart size={26} />
               {mounted && cartItemCount > 0 && (
                 <span className="absolute -top-0.5 -right-0.5 bg-accent text-secondary text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border border-primary shadow-sm animate-scale-in">
                   {cartItemCount > 99 ? '99+' : cartItemCount}
@@ -232,13 +232,13 @@ export default function Header() {
               <div className="relative" ref={userRef}>
                 <button
                   onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
-                  className="hidden sm:flex items-center gap-1.5 text-white hover:text-accent transition-all duration-200 p-2.5 rounded-xl hover:bg-white/10 outline-none hover:scale-105"
+                  className="hidden sm:flex items-center gap-2 text-white hover:text-accent transition-all duration-200 p-3 rounded-2xl hover:bg-white/10 outline-none hover:scale-105"
                 >
-                  <FiUser size={22} />
-                  <span className="text-sm font-medium hidden lg:inline max-w-[100px] truncate">
+                  <FiUser size={26} />
+                  <span className="text-base font-bold hidden lg:inline max-w-[120px] truncate">
                     {session.user?.name?.split(' ')[0]}
                   </span>
-                  <FiChevronDown size={14} className="hidden lg:inline" />
+                  <FiChevronDown size={18} className="hidden lg:inline" />
                 </button>
 
                 {isUserMenuOpen && (
@@ -278,10 +278,10 @@ export default function Header() {
             ) : (
               <Link
                 href="/login"
-                className="hidden sm:flex items-center gap-2 text-white hover:text-accent transition-colors p-2 rounded-lg hover:bg-white/10"
+                className="hidden sm:flex items-center gap-3 text-white hover:text-accent transition-colors p-3 rounded-2xl hover:bg-white/10"
               >
-                <FiUser size={22} />
-                <span className="text-sm font-medium hidden lg:inline">Login</span>
+                <FiUser size={26} />
+                <span className="text-base font-bold hidden lg:inline">Login</span>
               </Link>
             )}
           </div>
@@ -290,17 +290,17 @@ export default function Header() {
 
       {/* ─── Category Navigation Bar ─── */}
       <div className="bg-white border-b border-border hidden md:block">
-        <div className="container-main flex items-center h-11">
+        <div className="container-main flex items-center h-14">
           {/* All Categories Dropdown */}
           <div className="relative" ref={categoryRef}>
             <button
               onClick={() => setIsCategoryMenuOpen(!isCategoryMenuOpen)}
-              className="flex items-center gap-2 px-4 h-11 bg-secondary text-white font-medium text-sm hover:bg-secondary-light transition-colors cursor-pointer"
+              className="flex items-center gap-3 px-6 h-14 bg-secondary text-white font-bold text-base hover:bg-secondary-light transition-colors cursor-pointer rounded-b-xl shadow-md"
             >
-              <FiGrid size={16} />
+              <FiGrid size={20} />
               <span>All Categories</span>
               <FiChevronDown
-                size={14}
+                size={18}
                 className={`transition-transform ${isCategoryMenuOpen ? 'rotate-180' : ''}`}
               />
             </button>

@@ -40,7 +40,7 @@ export async function GET(request: NextRequest) {
         query.isFlashSale = true;
       }
       if (country && country !== 'ALL') {
-        query.country = country;
+        query.country = { $in: [country, 'ALL'] };
       }
       query.price = { $gte: minPrice, $lte: maxPrice };
 
@@ -101,7 +101,7 @@ export async function GET(request: NextRequest) {
       }
 
       if (country && country !== 'ALL') {
-        products = products.filter((p) => p.country === country);
+        products = products.filter((p) => p.country === country || p.country === 'ALL');
       }
 
       // Filter price

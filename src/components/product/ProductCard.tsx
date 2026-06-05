@@ -60,48 +60,48 @@ export default function ProductCard({ product }: ProductCardProps) {
                 e.preventDefault();
                 toggleWishlist(product);
               }}
-              className={`w-9.5 h-9.5 rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 scale-95 hover:scale-105 active:scale-90 cursor-pointer ${
+              className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 scale-95 hover:scale-105 active:scale-90 cursor-pointer ${
                 isInWishlist
                   ? 'bg-error text-white border border-error'
                   : 'bg-white/90 backdrop-blur-md text-text-primary hover:bg-error hover:text-white border border-white/20'
               }`}
               aria-label="Add to wishlist"
             >
-              <FiHeart size={16} fill={isInWishlist ? 'currentColor' : 'none'} />
+              <FiHeart size={20} fill={isInWishlist ? 'currentColor' : 'none'} />
             </button>
             <button
               onClick={(e) => {
                 e.preventDefault();
                 addItem(product);
               }}
-              className="w-9.5 h-9.5 rounded-xl bg-primary text-white flex items-center justify-center shadow-lg hover:bg-primary-hover border border-primary/10 transition-all duration-300 scale-95 hover:scale-105 active:scale-90 cursor-pointer"
+              className="w-12 h-12 rounded-2xl bg-primary text-white flex items-center justify-center shadow-lg hover:bg-primary-hover border border-primary/10 transition-all duration-300 scale-95 hover:scale-105 active:scale-90 cursor-pointer"
               aria-label="Add to cart"
             >
-              <FiShoppingCart size={16} />
+              <FiShoppingCart size={20} />
             </button>
             <Link
               href={`/product/${product.slug}`}
-              className="w-9.5 h-9.5 rounded-xl bg-white/90 backdrop-blur-md text-text-primary flex items-center justify-center shadow-lg hover:bg-secondary hover:text-white border border-white/20 transition-all duration-300 scale-95 hover:scale-105 active:scale-90"
+              className="w-12 h-12 rounded-2xl bg-white/90 backdrop-blur-md text-text-primary flex items-center justify-center shadow-lg hover:bg-secondary hover:text-white border border-white/20 transition-all duration-300 scale-95 hover:scale-105 active:scale-90"
               aria-label="Quick view"
             >
-              <FiEye size={16} />
+              <FiEye size={20} />
             </Link>
           </div>
         </div>
 
         {/* Info */}
-        <div className="p-3.5 flex flex-col justify-between">
+        <div className="p-5 flex flex-col justify-between">
           <div>
             {/* Category */}
             {product.categoryName && (
-              <p className="text-[10px] font-bold text-text-muted uppercase tracking-wider mb-1">
+              <p className="text-xs font-bold text-text-muted uppercase tracking-wider mb-2">
                 {product.categoryName}
               </p>
             )}
 
             {/* Title */}
             <Link href={`/product/${product.slug}`}>
-              <h3 className="text-xs sm:text-sm font-semibold text-text-primary line-clamp-2 hover:text-primary transition-colors leading-snug min-h-[2.5rem]">
+              <h3 className="text-sm sm:text-base font-semibold text-text-primary line-clamp-2 hover:text-primary transition-colors leading-snug min-h-[3rem]">
                 {product.name}
               </h3>
             </Link>
@@ -128,12 +128,12 @@ export default function ProductCard({ product }: ProductCardProps) {
 
           <div>
             {/* Price */}
-            <div className="flex items-baseline flex-wrap gap-x-2 gap-y-0.5 mt-2.5">
-              <span className="text-sm sm:text-base font-extrabold text-primary">
+            <div className="flex items-baseline flex-wrap gap-x-3 gap-y-1 mt-3">
+              <span className="text-base sm:text-xl font-extrabold text-primary">
                 {formatPrice(displayPrice, product.country)}
               </span>
               {product.discountPrice && (
-                <span className="text-[10px] sm:text-xs text-text-muted line-through font-medium">
+                <span className="text-xs sm:text-sm text-text-muted line-through font-medium">
                   {formatPrice(product.price, product.country)}
                 </span>
               )}

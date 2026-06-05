@@ -55,6 +55,14 @@ export async function checkRealDbConnection(): Promise<boolean> {
   if (hasCheckedConnection) {
     return isDbConnectedReal;
   }
+
+  // If no URI is configured, skip the connection attempt entirely
+  if (!process.env.MONGODB_URI) {
+    hasCheckedConnection = true;
+    isDbConnectedReal = false;
+    console.warn('MONGODB_URI not set. Using local Mock JSON database.');
+    return false;
+  }
   
   const dbConnect = (await import('@/lib/db')).default;
   try {

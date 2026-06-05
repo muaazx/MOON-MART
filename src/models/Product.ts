@@ -20,7 +20,7 @@ export interface IProductDoc extends Document {
   flashSaleEnd?: Date;
   createdAt: Date;
   updatedAt: Date;
-  country?: 'US' | 'UK';
+  country?: 'US' | 'UK' | 'ALL';
 }
 
 const ProductSchema = new Schema<IProductDoc>(
@@ -42,7 +42,7 @@ const ProductSchema = new Schema<IProductDoc>(
     isFeatured: { type: Boolean, default: false },
     isFlashSale: { type: Boolean, default: false },
     flashSaleEnd: { type: Date },
-    country: { type: String, enum: ['US', 'UK'], default: 'US' },
+    country: { type: String, enum: ['US', 'UK', 'ALL'], default: 'ALL' },
   },
   { timestamps: true }
 );

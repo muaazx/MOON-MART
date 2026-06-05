@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  /* ─── Brand Colors (Daraz-inspired orange + dark theme) ─── */
-  --primary: #f85606;
-  --primary-hover: #e04d05;
-  --primary-light: #fff0e6;
-  --secondary: #1a1a2e;
-  --secondary-light: #16213e;
-  --accent: #ffc107;
-  --accent-hover: #e6ad00;
+  /* ─── Brand Colors (Moon Mart Modern Indigo) ─── */
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --primary-light: #e0e7ff;
+  --secondary: #0f172a;
+  --secondary-light: #1e293b;
+  --accent: #f59e0b;
+  --accent-hover: #d97706;
 
   /* ─── Neutrals ─── */
   --bg-primary: #f5f5f5;
@@ -39,10 +39,10 @@
   --shadow-xl: 0 16px 50px rgba(0, 0, 0, 0.16);
 
   /* ─── Radii ─── */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
   --radius-full: 9999px;
 
   /* ─── Transitions ─── */
@@ -209,9 +209,9 @@ img {
 .badge {
   display: inline-flex;
   align-items: center;
-  padding: 2px 8px;
-  font-size: 11px;
-  font-weight: 600;
+  padding: 4px 10px;
+  font-size: 13px;
+  font-weight: 700;
   border-radius: var(--radius-full);
   text-transform: uppercase;
   letter-spacing: 0.5px;
