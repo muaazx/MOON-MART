@@ -110,21 +110,21 @@ export default function AdminDashboardPage() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-3">
           <div>
-            <h1 className="text-xl sm:text-2xl font-bold text-text-primary">Seller Center Dashboard</h1>
-            <p className="text-xs text-text-secondary">Overview of Moon Mart metrics, catalog, and deliveries.</p>
+            <h1 className="text-2xl sm:text-3xl font-bold text-text-primary">Seller Center Dashboard</h1>
+            <p className="text-sm text-text-secondary mt-1">Overview of Moon Mart metrics, catalog, and deliveries.</p>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <Link
               href="/admin/products"
-              className="bg-primary hover:bg-primary-hover text-white text-xs font-bold px-4 py-2 rounded-lg shadow-sm transition-colors"
+              className="bg-primary-light border-2 border-primary text-secondary text-sm font-extrabold px-6 py-3 rounded-xl shadow-md hover:bg-primary hover:text-white transition-all duration-200 flex items-center gap-2"
             >
-              Manage Catalog
+              <FiGridIcon size={18} /> Manage Catalog
             </Link>
             <Link
               href="/admin/orders"
-              className="bg-secondary hover:bg-secondary-light text-white text-xs font-bold px-4 py-2 rounded-lg shadow-sm transition-colors"
+              className="bg-secondary text-accent text-sm font-extrabold px-6 py-3 rounded-xl shadow-md hover:bg-secondary-light hover:text-white transition-all duration-200 flex items-center gap-2"
             >
-              Manage Orders
+              <FiPackage size={18} /> Manage Orders
             </Link>
           </div>
         </div>

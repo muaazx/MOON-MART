@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  /* ─── Brand Colors (Moon Mart Modern Indigo) ─── */
-  --primary: #4f46e5;
-  --primary-hover: #4338ca;
-  --primary-light: #e0e7ff;
+  /* ─── Brand Colors (Moon Mart Modern Orange) ─── */
+  --primary: #f06517;
+  --primary-hover: #d95a12;
+  --primary-light: #fff3e8;
   --secondary: #0f172a;
   --secondary-light: #1e293b;
   --accent: #f59e0b;
