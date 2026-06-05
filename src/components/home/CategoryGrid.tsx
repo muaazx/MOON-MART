@@ -43,21 +43,21 @@ export default function CategoryGrid() {
         </Link>
       </div>
 
-      <div className="grid grid-cols-5 sm:grid-cols-5 md:grid-cols-10 gap-3 sm:gap-4">
+      <div className="flex overflow-x-auto hide-scrollbar snap-x pb-4 sm:pb-0 sm:grid sm:grid-cols-5 md:grid-cols-10 gap-4 sm:gap-4">
         {categories.map((cat) => (
           <Link
             key={cat.slug}
             href={`/category/${cat.slug}`}
-            className="group flex flex-col items-center gap-2 cursor-pointer"
+            className="group flex flex-col items-center gap-2 cursor-pointer shrink-0 w-[72px] sm:w-auto snap-center"
           >
             <div
-              className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br ${cat.color} border flex items-center justify-center text-xl sm:text-2xl shadow-sm group-hover:shadow-md group-hover:scale-105 active:scale-95 transition-all duration-300`}
+              className={`w-16 h-16 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br ${cat.color} border flex items-center justify-center text-2xl sm:text-2xl shadow-sm group-hover:shadow-md group-hover:scale-105 active:scale-95 transition-all duration-300`}
             >
               <div className="group-hover:scale-110 transition-transform duration-300">
                 {cat.icon}
               </div>
             </div>
-            <span className="text-[11px] sm:text-xs font-semibold text-text-secondary text-center leading-tight group-hover:text-primary transition-colors">
+            <span className="text-xs sm:text-xs font-semibold text-text-secondary text-center leading-tight group-hover:text-primary transition-colors">
               {cat.name}
             </span>
           </Link>

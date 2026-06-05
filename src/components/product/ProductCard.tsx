@@ -60,31 +60,31 @@ export default function ProductCard({ product }: ProductCardProps) {
                 e.preventDefault();
                 toggleWishlist(product);
               }}
-              className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 scale-95 hover:scale-105 active:scale-90 cursor-pointer ${
+              className={`w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 scale-95 hover:scale-105 active:scale-90 cursor-pointer ${
                 isInWishlist
                   ? 'bg-error text-white border border-error'
                   : 'bg-white/90 backdrop-blur-md text-text-primary hover:bg-error hover:text-white border border-white/20'
               }`}
               aria-label="Add to wishlist"
             >
-              <FiHeart size={20} fill={isInWishlist ? 'currentColor' : 'none'} />
+              <FiHeart className="w-4 h-4 md:w-5 md:h-5" fill={isInWishlist ? 'currentColor' : 'none'} />
             </button>
             <button
               onClick={(e) => {
                 e.preventDefault();
                 addItem(product);
               }}
-              className="w-12 h-12 rounded-2xl bg-primary text-white flex items-center justify-center shadow-lg hover:bg-primary-hover border border-primary/10 transition-all duration-300 scale-95 hover:scale-105 active:scale-90 cursor-pointer"
+              className="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-primary text-white flex items-center justify-center shadow-lg hover:bg-primary-hover border border-primary/10 transition-all duration-300 scale-95 hover:scale-105 active:scale-90 cursor-pointer"
               aria-label="Add to cart"
             >
-              <FiShoppingCart size={20} />
+              <FiShoppingCart className="w-4 h-4 md:w-5 md:h-5" />
             </button>
             <Link
               href={`/product/${product.slug}`}
-              className="w-12 h-12 rounded-2xl bg-white/90 backdrop-blur-md text-text-primary flex items-center justify-center shadow-lg hover:bg-secondary hover:text-white border border-white/20 transition-all duration-300 scale-95 hover:scale-105 active:scale-90"
+              className="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-white/90 backdrop-blur-md text-text-primary flex items-center justify-center shadow-lg hover:bg-secondary hover:text-white border border-white/20 transition-all duration-300 scale-95 hover:scale-105 active:scale-90"
               aria-label="Quick view"
             >
-              <FiEye size={20} />
+              <FiEye className="w-4 h-4 md:w-5 md:h-5" />
             </Link>
           </div>
         </div>

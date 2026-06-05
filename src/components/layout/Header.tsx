@@ -137,7 +137,7 @@ export default function Header() {
 
       {/* ─── Main Header ─── */}
       <div className={`bg-primary transition-all duration-300 ${isScrolled ? 'shadow-lg' : ''}`}>
-        <div className="container-main flex items-center h-20 gap-6">
+        <div className="container-main flex items-center h-16 sm:h-20 gap-3 sm:gap-6">
           {/* Mobile Menu Toggle */}
           <button
             className="md:hidden text-white p-2"
@@ -159,7 +159,7 @@ export default function Header() {
             </div>
           </Link>
 
-          {/* Search Bar */}
+          {/* Search Bar - Desktop */}
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -167,7 +167,7 @@ export default function Header() {
                 window.location.href = `/products?q=${encodeURIComponent(searchQuery)}`;
               }
             }}
-            className="flex-1 max-w-2xl relative"
+            className="hidden md:block flex-1 max-w-2xl relative"
           >
             <div
               className={`flex items-center bg-white rounded-xl overflow-hidden transition-all duration-300 ${
@@ -285,6 +285,46 @@ export default function Header() {
               </Link>
             )}
           </div>
+        </div>
+
+        {/* Mobile Search Bar */}
+        <div className="md:hidden px-4 pb-4">
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (searchQuery.trim()) {
+                window.location.href = `/products?q=${encodeURIComponent(searchQuery)}`;
+              }
+            }}
+            className="w-full relative"
+          >
+            <div
+              className={`flex items-center bg-white rounded-xl overflow-hidden transition-all duration-300 ${
+                isSearchFocused ? 'ring-2 ring-accent shadow-lg scale-[1.002]' : 'shadow-sm border border-transparent'
+              }`}
+            >
+              <div className="pl-4 text-text-muted flex items-center justify-center">
+                <FiSearch size={20} />
+              </div>
+              <input
+                type="text"
+                placeholder="Search..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onFocus={() => setIsSearchFocused(true)}
+                onBlur={() => setIsSearchFocused(false)}
+                className="flex-1 px-3 py-2.5 text-sm text-text-primary outline-none bg-transparent"
+                id="search-input-mobile"
+              />
+              <button
+                type="submit"
+                className="bg-secondary hover:bg-secondary-light text-white px-5 py-2.5 transition-colors font-bold text-sm cursor-pointer"
+                aria-label="Search"
+              >
+                Search
+              </button>
+            </div>
+          </form>
         </div>
       </div>
 
