@@ -358,12 +358,12 @@ export default function Header() {
           </div>
 
           {/* Nav Links */}
-          <nav className="flex items-center h-full ml-2">
+          <nav className="flex items-center h-full ml-6 gap-6">
             {['Flash Sale', 'New Arrivals', 'Best Sellers', 'Brands', 'Deals'].map((item) => (
               <Link
                 key={item}
                 href={`/${item.toLowerCase().replace(' ', '-')}`}
-                className={`px-4 h-full flex items-center text-sm font-medium transition-colors hover:text-primary ${
+                className={`flex items-center text-sm font-medium transition-colors hover:text-primary ${
                   item === 'Flash Sale' ? 'text-error font-semibold' : 'text-text-secondary'
                 }`}
               >

@@ -105,32 +105,34 @@ export default function AdminDashboardPage() {
   };
 
   return (
-    <div className="bg-bg-primary min-h-screen py-6">
-      <div className="container-main">
+    <div className="bg-bg-primary min-h-screen py-8">
+      <div className="container-main space-y-8">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-3">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <div>
             <h1 className="text-2xl sm:text-3xl font-bold text-text-primary">Seller Center Dashboard</h1>
             <p className="text-sm text-text-secondary mt-1">Overview of Moon Mart metrics, catalog, and deliveries.</p>
           </div>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4">
+            {/* Primary Button */}
             <Link
               href="/admin/products"
-              className="bg-primary-light border-2 border-primary text-secondary text-lg font-extrabold px-10 py-5 rounded-2xl shadow-lg hover:bg-primary hover:text-white transition-all duration-200 flex items-center gap-3"
+              className="bg-primary text-white text-sm sm:text-base font-bold px-6 py-3.5 rounded-xl shadow-md hover:shadow-lg hover:bg-primary-hover transition-all duration-300 flex items-center gap-2.5 transform hover:-translate-y-0.5"
             >
-              <FiGridIcon size={24} /> Manage Catalog
+              <FiGridIcon size={20} /> Manage Catalog
             </Link>
+            {/* Secondary Button */}
             <Link
               href="/admin/orders"
-              className="bg-secondary text-white text-lg font-extrabold px-10 py-5 rounded-2xl shadow-lg hover:bg-secondary-light transition-all duration-200 flex items-center gap-3"
+              className="bg-white border border-border text-text-primary text-sm sm:text-base font-bold px-6 py-3.5 rounded-xl shadow-sm hover:shadow-md hover:bg-bg-primary transition-all duration-300 flex items-center gap-2.5 transform hover:-translate-y-0.5"
             >
-              <FiPackage size={24} /> Manage Orders
+              <FiPackage size={20} className="text-primary" /> Manage Orders
             </Link>
           </div>
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
           {/* Revenue */}
           <div className="bg-white p-5 rounded-xl border border-border-light shadow-sm flex items-center gap-4">
             <div className="w-12 h-12 bg-green-50 text-success rounded-xl flex items-center justify-center shrink-0">
