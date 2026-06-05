@@ -291,6 +291,9 @@ img {
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 /* ─── Line Clamp ─── */

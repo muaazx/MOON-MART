@@ -113,18 +113,18 @@ export default function AdminDashboardPage() {
             <h1 className="text-2xl sm:text-3xl font-bold text-text-primary">Seller Center Dashboard</h1>
             <p className="text-sm text-text-secondary mt-1">Overview of Moon Mart metrics, catalog, and deliveries.</p>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-6">
             <Link
               href="/admin/products"
-              className="bg-primary-light border-2 border-primary text-secondary text-base font-extrabold px-8 py-4 rounded-xl shadow-md hover:bg-primary hover:text-white transition-all duration-200 flex items-center gap-3"
+              className="bg-primary-light border-2 border-primary text-secondary text-lg font-extrabold px-10 py-5 rounded-2xl shadow-lg hover:bg-primary hover:text-white transition-all duration-200 flex items-center gap-3"
             >
-              <FiGridIcon size={20} /> Manage Catalog
+              <FiGridIcon size={24} /> Manage Catalog
             </Link>
             <Link
               href="/admin/orders"
-              className="bg-secondary text-white text-base font-extrabold px-8 py-4 rounded-xl shadow-md hover:bg-secondary-light transition-all duration-200 flex items-center gap-3"
+              className="bg-secondary text-white text-lg font-extrabold px-10 py-5 rounded-2xl shadow-lg hover:bg-secondary-light transition-all duration-200 flex items-center gap-3"
             >
-              <FiPackage size={20} /> Manage Orders
+              <FiPackage size={24} /> Manage Orders
             </Link>
           </div>
         </div>
